@@ -1,0 +1,9 @@
+{
+    "app" : {
+        "name" : "ecommerce-be-main"
+    },
+    "web" : {
+        "prefork": true,
+        "port" : 3000
+    }
+}
