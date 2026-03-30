@@ -3,13 +3,12 @@ package main
 import (
 	"ecommerce/internal/config"
 	"fmt"
-	"log"
 )
 
 func main() {
 	viperConfig := config.NewViper()
+	log := config.NewLogger(viperConfig)
 	app := config.NewFiber(viperConfig)
-
 
 	webPort := viperConfig.GetInt("web.port")
 	err := app.Listen(fmt.Sprintf(":%d", webPort))
