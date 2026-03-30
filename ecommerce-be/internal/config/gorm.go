@@ -32,17 +32,21 @@ func NewDatabase(viper *viper.Viper, log *logrus.Logger) *gorm.DB {
 		}),
 	})
 	if err != nil {
-		log.Fatalf("failed to connect database: %v", err)
+		panic(fmt.Errorf("failed to initialize form: %w", err))
 	}
 
 	connection, err := db.DB()
 	if err != nil {
-		log.Fatalf("failed to connect database: %v", err)
+		panic(fmt.Errorf("failed to get sql.DB: %w", err))
 	}
 
 	connection.SetMaxIdleConns(idleConnection)
 	connection.SetMaxOpenConns(maxConnection)
 	connection.SetConnMaxLifetime(time.Second * time.Duration(maxLifeTimeConnection))
+
+	if err = connection.Ping(); err != nil {
+		panic(fmt.Errorf("failed to ping database : %w", err))
+	}
 
 	return db
 }
