@@ -2,8 +2,23 @@
     "app" : {
         "name" : "ecommerce-be-main"
     },
+    "log" : {
+        "level" : 6
+    },
     "web" : {
         "prefork": true,
         "port" : 3000
+    },
+    "database" :{
+        "username":"postgres",
+        "password":"postgres",
+        "host" : "localhost",
+        "port" : 5432,
+        "database" : "ecommerce",
+        "pool" : {
+            "idle" :10,
+            "max" :100,
+            "lifetime" :300
+        }
     }
 }
