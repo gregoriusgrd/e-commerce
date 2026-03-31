@@ -10,7 +10,7 @@ export const Navbar = () => {
                 <NavbarCenter />
             </div>
             <svg width="250" height="80" viewBox="0 0 250 80" xmlns="http://w3.org">
-                <text x="10" y="55" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="black">
+                <text x="10" y="55" fontFamily="Arial, sans-serif" fontSize="40" fontWeight="bold" fill="black">
                     ALIT
                 </text>
 
