@@ -7,14 +7,20 @@ import (
 )
 
 type RouteConfig struct {
-	App *fiber.App
+	App                  *fiber.App
 	CategoriesController *http.CategoriesController
+	ProvincesController  *http.ProvincesController
+	CitiesController     *http.CitiesController
 }
 
-func(c *RouteConfig) Setup(){
+func (c *RouteConfig) Setup() {
 	c.SetupGuestRoute()
 }
 
-func(c *RouteConfig) SetupGuestRoute(){
+func (c *RouteConfig) SetupGuestRoute() {
 	c.App.Get("/api/categories", c.CategoriesController.List)
+	
+	c.App.Get("/api/provinces", c.ProvincesController.List)
+
+	c.App.Get("/api/cities", c.CitiesController.FindByProvinceId)
 }

@@ -7,22 +7,22 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type CategoriesController struct {
-	UseCase *usecase.CategoriesUsecase
+type ProvincesController struct {
+	UseCase *usecase.ProvincesUsecase
 	Log     *logrus.Logger
 }
 
-func NewCategoriesController(useCase *usecase.CategoriesUsecase, log *logrus.Logger) *CategoriesController {
-	return &CategoriesController{
+func NewProvincesController(useCase *usecase.ProvincesUsecase, log *logrus.Logger) *ProvincesController {
+	return &ProvincesController{
 		UseCase: useCase,
 		Log:     log,
 	}
 }
 
-func (c *CategoriesController) List(ctx *fiber.Ctx) error {
+func (c *ProvincesController) List(ctx *fiber.Ctx) error {
 	responses, err := c.UseCase.List(ctx.UserContext())
 	if err != nil {
-		c.Log.WithError(err).Error("failed to list Categories")
+		c.Log.WithError(err).Error("failed to list provinces")
 		return err
 	}
 
