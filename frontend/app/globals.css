@@ -92,7 +92,7 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: #101828;
   font-family: var(--font-plus-jakarta-sans), sans-serif;
 }
 
