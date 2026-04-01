@@ -1,5 +1,6 @@
 import { ProductCard } from "@/src/features/product/components/ProductCard";
 import { ProductList } from "@/src/features/product/components/ProductList";
+import { HomeView } from "@/src/features/homepage";
 
 export default function Home() {
     const mockProduct = [{
@@ -30,8 +31,10 @@ export default function Home() {
     ];
 
     return (
-        <main className="p-6 bg-white min-h-screen">
+        <main className=" bg-white min-h-screen">
+            <HomeView />
             <h1 className="text-2xl font-bold mb-4">Products</h1>
+            
             <ProductList products={mockProduct} />
         </main>
     )
